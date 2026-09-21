@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>Super Tetris</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <h1>Super Tetris</h1>
+        <div class="theme-switch" role="group" aria-label="Thème">
+          <button type="button" data-theme-value="auto" aria-pressed="true">
+            Auto
+          </button>
+          <button type="button" data-theme-value="light" aria-pressed="false">
+            Clair
+          </button>
+          <button type="button" data-theme-value="dark" aria-pressed="false">
+            Sombre
+          </button>
+        </div>
+      </header>
+
+      <section class="game">
+        <div class="board-wrap" id="board-wrap">
+          <canvas id="board" aria-label="Plateau de jeu"></canvas>
+          <div
+            class="overlay hidden"
+            id="overlay"
+            role="dialog"
+            aria-live="polite"
+          >
+            <h2 id="overlay-title"></h2>
+            <p id="overlay-text"></p>
+            <button type="button" class="btn" id="overlay-btn"></button>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="card stats">
+            <dl>
+              <div>
+                <dt>Score</dt>
+                <dd id="score">0</dd>
+              </div>
+              <div>
+                <dt>Niveau</dt>
+                <dd id="level">1</dd>
+              </div>
+              <div>
+                <dt>Lignes</dt>
+                <dd id="lines">0</dd>
+              </div>
+              <div>
+                <dt>Record</dt>
+                <dd id="best">0</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="card next">
+            <h3>Suivantes</h3>
+            <canvas id="next" aria-label="Prochaines pièces"></canvas>
+          </div>
+
+          <div class="card powers">
+            <h3>Pouvoirs</h3>
+            <ul>
+              <li>
+                <svg class="pico" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="6.5" />
+                </svg>
+                <span><b>Bombe</b> détruit les cases autour (rayon 1)</span>
+              </li>
+              <li>
+                <svg class="pico" viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                </svg>
+                <span><b>Ligne</b> détruit toute la ligne</span>
+              </li>
+              <li>
+                <svg class="pico" viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="12" y1="3" x2="12" y2="21" />
+                </svg>
+                <span><b>Colonne</b> détruit toute la colonne</span>
+              </li>
+            </ul>
+            <p class="hint">Pose une pièce sur le pouvoir pour l'activer.</p>
+          </div>
+
+          <div class="card keys">
+            <h3>Commandes</h3>
+            <ul>
+              <li><kbd>←</kbd> <kbd>→</kbd> déplacer</li>
+              <li><kbd>↑</kbd> ou <kbd>X</kbd> rotation</li>
+              <li><kbd>Z</kbd> rotation inverse</li>
+              <li><kbd>↓</kbd> descente douce</li>
+              <li><kbd>Espace</kbd> chute directe</li>
+              <li><kbd>P</kbd> pause</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <nav class="touch" aria-label="Commandes tactiles">
+        <button type="button" data-action="left" aria-label="Gauche">◀</button>
+        <button type="button" data-action="rotate" aria-label="Rotation">
+          ⟳
+        </button>
+        <button type="button" data-action="right" aria-label="Droite">▶</button>
+        <button type="button" data-action="down" aria-label="Descendre">
+          ▼
+        </button>
+        <button type="button" data-action="drop" aria-label="Chute directe">
+          ⤓
+        </button>
+      </nav>
+    </main>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>
