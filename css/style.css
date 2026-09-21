@@ -299,31 +299,56 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.powers ul {
+  gap: 7px;
+}
+
 .powers li {
   display: grid;
   grid-template-columns: 22px 1fr;
   gap: 10px;
   align-items: center;
+  line-height: 1.25;
 }
 
-.powers .pico {
+.pico {
   width: 22px;
   height: 22px;
-  fill: var(--power);
+  fill: none;
   stroke: var(--power);
   stroke-width: 3.5;
   stroke-linecap: round;
 }
 
-.powers .pico line {
-  fill: none;
-}
-.powers .pico circle {
+.pico .dot {
+  fill: var(--power);
   stroke: none;
+}
+.pico .ring {
+  stroke-width: 3;
 }
 
 .powers b {
   font-weight: 650;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--power);
+  color: var(--bg);
+  font-size: 0.8rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+.badge.hidden {
+  display: none;
 }
 
 .hint {
